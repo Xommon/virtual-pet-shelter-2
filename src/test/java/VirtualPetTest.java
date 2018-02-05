@@ -32,6 +32,29 @@ public class VirtualPetTest {
 		VirtualPet underTest = new VirtualPet("", "");
 		underTest.tick();
 		int check = underTest.getHunger();
-		assertEquals(45, check);
+		assertEquals(47, check);
 	}
+
+	@Test
+	public void shouldGetName() {
+		VirtualPet underTest = new VirtualPet("Jason", "Squirrel");
+		String check = underTest.getName();
+		assertEquals("Jason", check);
+	}
+
+	@Test
+	public void shouldGetDescription() {
+		VirtualPet underTest = new VirtualPet("Jason", "Squirrel");
+		String check = underTest.getDescription();
+		assertEquals("Squirrel", check);
+	}
+	
+	@Test
+	public void shouldCapStats() {
+		VirtualPet testPet = new VirtualPet("","",100,100,100);
+		testPet.capStats();
+		int check = testPet.getHunger();
+		assertEquals(99,check);
+	}
+
 }

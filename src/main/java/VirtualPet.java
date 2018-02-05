@@ -15,6 +15,8 @@ public class VirtualPet {
 	}
 
 	public VirtualPet(String name, String description, int hunger, int thirst, int fun) {
+		this.name = name;
+		this.description = description;
 		this.hunger = hunger;
 		this.thirst = thirst;
 		this.fun = fun;
@@ -55,4 +57,25 @@ public class VirtualPet {
 		thirst -= 2;
 		fun -= 1;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void capStats() {
+		if (hunger > 99) {
+			hunger = 99;
+		}
+		if (thirst > 99) {
+			thirst = 99;
+		}
+		if (fun > 99) {
+			fun = 99;
+		}
+	}
+
 }
