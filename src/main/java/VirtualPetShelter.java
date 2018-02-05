@@ -19,7 +19,7 @@ public class VirtualPetShelter {
 	}
 
 	public void removePet(VirtualPet testPet) {
-		pets.remove(testPet.getName(), testPet);		
+		pets.remove(testPet.getName(), testPet);
 	}
 
 	public VirtualPet getName(String petName) {
@@ -30,11 +30,11 @@ public class VirtualPetShelter {
 		}
 		return null;
 	}
-	
+
 	public int getSize() {
 		return pets.size();
 	}
-	
+
 	public void feedAll() {
 		for (VirtualPet name : pets.values()) {
 			name.feed();
@@ -45,11 +45,15 @@ public class VirtualPetShelter {
 		for (VirtualPet name : pets.values()) {
 			name.water();
 		}
-		
+
 	}
 
 	public void playWithPet(VirtualPet nameOfPet) {
-		nameOfPet.play();
+		for (VirtualPet name : pets.values()) {
+			if (name.getName().equals(nameOfPet)) {
+				name.play();
+			}
+		}
 	}
 
 	public void tick() {
@@ -57,9 +61,9 @@ public class VirtualPetShelter {
 			name.tick();
 		}
 	}
-	
+
 	Collection<VirtualPet> getValues() {
-        return pets.values();
-    }
+		return pets.values();
+	}
 
 }
