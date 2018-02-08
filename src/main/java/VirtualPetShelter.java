@@ -5,8 +5,8 @@ import java.util.Map;
 public class VirtualPetShelter {
 	Map<String, VirtualPet> pets = new HashMap<>();
 
-	public void addPet(VirtualPet testPet) {
-		pets.put(testPet.getName(), testPet);
+	public void addPet(VirtualPet pet1) {
+		pets.put(pet1.getName(), pet1);
 	}
 
 	public boolean containsPet(String testPet) {
@@ -16,10 +16,6 @@ public class VirtualPetShelter {
 			}
 		}
 		return false;
-	}
-
-	public void removePet(VirtualPet testPet) {
-		pets.remove(testPet.getName(), testPet);
 	}
 
 	public VirtualPet getName(String petName) {
@@ -39,21 +35,27 @@ public class VirtualPetShelter {
 		for (VirtualPet name : pets.values()) {
 			name.feed();
 		}
+		capAll();
 	}
 
 	public void waterAll() {
 		for (VirtualPet name : pets.values()) {
 			name.water();
 		}
-
+		capAll();
 	}
 
-	public void playWithPet(VirtualPet nameOfPet) {
+	public void playWithPet(String choosePet) {
 		for (VirtualPet name : pets.values()) {
-			if (name.getName().equals(nameOfPet)) {
+			if (name.getName().equals(choosePet)) {
 				name.play();
 			}
 		}
+		capAll();
+	}
+	
+	public void removePet(VirtualPet choosePet) {
+			pets.remove(choosePet.getName(), choosePet);
 	}
 
 	public void tick() {
@@ -66,4 +68,9 @@ public class VirtualPetShelter {
 		return pets.values();
 	}
 
+	public void capAll() {
+		for (VirtualPet name : pets.values()) {
+			name.capStats();
+		}
+	}
 }
